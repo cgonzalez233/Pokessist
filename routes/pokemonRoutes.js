@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
-const matchup = require("./matchups");
+const matchup = require("../../Utils/matchups");
 
 router.get("/", async (req, res) => {
   try {
