@@ -1,18 +1,18 @@
-import React, { useContext, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser, logoutUser } from './store/actions/authActions';
-import { Store } from './store';
+import React, { useContext, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "./store/actions/authActions";
+import { Store } from "./store";
 
-import './App.css';
+import "./App.css";
 
-import Navbar from './components/partials/Navbar';
-import Landing from './components/pages/Landing';
-import Register from './components/pages/Register';
-import Login from './components/pages/Login';
-import PrivateRoute from './components/auth/PrivateRoute';
-import Dashboard from './components/pages/Dashboard';
+import Navbar from "./components/partials/Navbar";
+import Landing from "./components/pages/Landing";
+import Register from "./components/pages/Register";
+import Login from "./components/pages/Login";
+import PrivateRoute from "./components/auth/PrivateRoute";
+import Dashboard from "./components/pages/Dashboard";
 
 const App = () => {
   const { dispatch } = useContext(Store);
@@ -29,10 +29,10 @@ const App = () => {
 
       if (decoded.exp < currentTime) {
         dispatch(logoutUser());
-        window.location.href = './login';
+        window.location.href = "./login";
       }
     }
-  }, [ dispatch ]);
+  }, [dispatch]);
 
   return (
     <Router>
